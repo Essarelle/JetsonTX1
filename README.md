@@ -7,7 +7,7 @@ in /mnt/opencv-3.1.0/modules/cudalegacy/src/graphcuts.cpp add the following to t
 
 if error with xfeatures2d:
 
-    export xfeatures2d=/path/to/opencv_contrib/modules/
+    export xfeatures2d=/mnt/opencv_contrib-3.1.0/modules
 
 in /mnt/opencv-3.1.0/modules/python/common.cmake append:
 
