@@ -8,14 +8,26 @@ During the flashing process, for some reason the aptitude sources list gets conf
 
     sudo python3 Cleanupdeb11.py
 
-There are a number of pieces of software installed during the flashing process that are extraneous and should be removed as space on the eMMC storage is limited. In particular, the unity scope related peripherals and libreoffice components are useless to the project. To remove them run the script *cleanupextras.sh* 
+There are a number of pieces of software installed during the flashing process that are extraneous and should be removed as space on the eMMC storage is limited. In particular, the unity scope related peripherals and libreoffice components are useless to the project. To remove them run the script *cleanupextras.sh* via terminal
 
     ./cleanupextras.sh
 
 This should remove all of the useless software and free up space.
 
+# Mount SSD and Create Swapfile
+The onboard storage and memory shipped with the development board are not adequate to build OpenCV 3.1.0 compiled against CUDA, so it is necessary to add additional storage and create a swapfile (hence the attached SSD). To do so, first mount the SSD in the following manner via terminal
+
+    sudo mount -t ext4 /dev/sda1 /mnt
+
+This mounts the */dev/sda1* drive to mountpoint */mnt*. 
+Now create the swapfile using the script *createSwap.sh* provided in this repo via terminal as follows
+
+    sudo ./createSwapfile.sh -d /mnt -s 8 -a
+
+This creates a swapfile of size 8 GB and sets */etc/fstab* to automount the drive. 8 GB is twice the onboard memory and is more than adequate for the purposes of the project as a whole, however if one feels it necessary to increase the size, simply change the number following the -s flag, in the above case 8, to reflect your desire. 
+
 # OpenCV 3.1.0 Compile Bugs Solutions 
-If cmake can't find cuda libraries, in */mnt/opencv-3.1.0/modules/cudalegacy/src/graphcuts.cpp* add the following to the first line below includes (should be obvious where to put it)
+If *cmake* can't find the CUDA libraries, in */mnt/opencv-3.1.0/modules/cudalegacy/src/graphcuts.cpp* add the following to the first line below includes (should be obvious where to put it)
 
     || (CUDART_VERSION >= 8000) 
 
@@ -23,7 +35,7 @@ If error with xfeatures2d not being found during make, export the following:
 
     export xfeatures2d=/mnt/opencv_contrib-3.1.0/modules
 
-If HDF5 not found by cmake in */mnt/opencv-3.1.0/modules/python/common.cmake*, append the following to the bottom of the file:
+If HDF5 not found by *cmake* in */mnt/opencv-3.1.0/modules/python/common.cmake*, append the following to the bottom of the file:
 
     find_package(HDF5)
  
