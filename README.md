@@ -16,7 +16,7 @@ If HDF5 not found by cmake in */mnt/opencv-3.1.0/modules/python/common.cmake*, a
     include_directories(${HDF5_INCLUDE_DIRS})
 
 
-If error with undefined character before '<' (or something like that) during make, move the following from *onlineMIL.hpp* to *onlineMIL.cpp*   
+If error with undefined character before '<' (or something like that) during make in regards to onlineMIL, move the following from *onlineMIL.hpp* to *onlineMIL.cpp*   
 
     #define  sign(s)  ((s > 0 ) ? 1 : ((s<0) ? -1 : 0))
 
