@@ -20,7 +20,7 @@ If error with undefined character before '<' (or something like that) during mak
 
     #define  sign(s)  ((s > 0 ) ? 1 : ((s<0) ? -1 : 0))
 
-If compile still fails with similar error while building onlineMIL, put the following in *onlineMIL.hpp* 
+If compile still fails with similar error as above while building onlineMIL, put the following in *onlineMIL.hpp* 
 
     #define CV_SIGN(s)  (((s) > 0) ? 1 : (((s)<0) ? -1 : 0)) 
 
