@@ -1,7 +1,9 @@
 # JetsonTX1
 
 # Compile Bugs Solutions 
-in /mnt/opencv-3.1.0/modules/cudalegacy/src/graphcuts.cpp add || (CUDART_VERSION >= 8000) to the first line below includes
+in /mnt/opencv-3.1.0/modules/cudalegacy/src/graphcuts.cpp add the following to the first line below includes (should be obvious where to put it)
+
+    || (CUDART_VERSION >= 8000) 
 
 if error with xfeatures2d:
 
