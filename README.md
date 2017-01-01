@@ -21,8 +21,8 @@ move
 
 from onlineMIL.hpp to onlineMIL.cpp
 
-if compile still fails: place 
+if compile still fails: put the following in onlineMIL.hpp 
 
     #define CV_SIGN(s)  (((s) > 0) ? 1 : (((s)<0) ? -1 : 0)) 
 
-in onlineMIL.hpp
+
