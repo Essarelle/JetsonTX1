@@ -82,3 +82,10 @@ If compile still fails with similar error as above while building onlineMIL, put
     #define CV_SIGN(s)  (((s) > 0) ? 1 : (((s)<0) ? -1 : 0)) 
 
 _Note: If errors occur during configuration (cmake step), it is necessary to delete the CMakeCache.txt file using rm -rf before rerunning cmake_ 
+
+# Install ROS Kinetic Libraries
+To install the MBZIRC-specific ROS packages and dependencies, run the *ROS-Kinetic.sh* script provided in the repo.
+
+    ./ROS-Kinetic.sh
+
+This concludes the guide, for questions contact EssarelleATnymDOThushDOTcom 
