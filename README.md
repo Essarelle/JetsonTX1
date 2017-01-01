@@ -58,7 +58,7 @@ Then *make* and install it
 See below for help with compile errors
 
 # OpenCV 3.1.0 Compile Bugs Solutions 
-If *cmake* can't find the CUDA libraries, in */mnt/opencv-3.1.0/modules/cudalegacy/src/graphcuts.cpp* add the following to the first line below includes (should be obvious where to put it)
+If *make* can't find the CUDA libraries while building graphcuts, in */mnt/opencv-3.1.0/modules/cudalegacy/src/graphcuts.cpp* add the following to the first line below includes (should be obvious where to put it)
 
     || (CUDART_VERSION >= 8000) 
 
