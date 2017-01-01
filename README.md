@@ -9,7 +9,7 @@ If error with xfeatures2d not being found during make, export the following:
 
     export xfeatures2d=/mnt/opencv_contrib-3.1.0/modules
 
-If HDF5 not found by cmake in /mnt/opencv-3.1.0/modules/python/common.cmake append the following to the bottom of the file:
+If HDF5 not found by cmake in /mnt/opencv-3.1.0/modules/python/common.cmake, append the following to the bottom of the file:
 
     find_package(HDF5)
  
