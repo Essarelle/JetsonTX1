@@ -81,4 +81,4 @@ If compile still fails with similar error as above while building onlineMIL, put
 
     #define CV_SIGN(s)  (((s) > 0) ? 1 : (((s)<0) ? -1 : 0)) 
 
-
+_Note: If errors occur during configuration (cmake step), it is necessary to delete the CMakeCache.txt file using rm -rf before rerunning cmake_ 
