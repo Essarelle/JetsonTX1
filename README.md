@@ -3,6 +3,8 @@ This Readme is intended as a guide for the setup of a Jetson TX1 immediately fol
 
 To format the SSD, simply connect it to the SATA port, download the gparted tool, run *sudo gparted* from terminal, a gui should open, then follow the menus and prompts to format the drive into ext4. It is pretty straightforward. 
 
+In order to make the scripts useable run *chmod +x scriptname.sh*
+
 # Clean Up the Jetson
 During the flashing process, for some reason the aptitude sources list gets configured multiple times. In order to fix this run the *Cleanupdeb11.py* script provided in the following manner
 
