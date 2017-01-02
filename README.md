@@ -90,4 +90,9 @@ To install the MBZIRC-specific ROS packages and dependencies, run the *ROS-Kinet
 
     ./ROS-Kinetic.sh
 
+# Check On Board Camera with GStreamer Pipeline
+To check if the on board camera is working run the following
+
+    gst-launch-1.0 nvcamerasrc fpsRange="30.0 30.0" ! 'video/x-raw(memory:NVMM), width=(int)1920, height=(int)1080, format=(string)I420, framerate=(fraction)30/1' ! nvtee ! nvvidconv flip-method=2 ! 'video/x-raw(memory:NVMM), format=(string)I420' ! nvoverlaysink -e
+
 This concludes the guide, for questions contact EssarelleATnymDOThushDOTcom 
