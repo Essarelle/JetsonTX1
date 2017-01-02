@@ -26,7 +26,7 @@ Now create the swapfile using the script *createSwap.sh* provided in this repo v
 
     sudo ./createSwapfile.sh -d /mnt -s 8 -a
 
-This creates a swapfile of size 8 GB and sets */etc/fstab* to automount the drive. 8 GB is twice the onboard memory and is more than adequate for the purposes of the project as a whole, however if one feels it necessary to increase the size, simply change the number following the -s flag, in the above case 8, to reflect your desire. To double check that the script properly created the swapfile, either open the gui based system monitor provided on the system and navigate to the memory tab (should be listed as swap with a green circle that says 8 GB) or run
+This creates a swapfile of size 8 GB and sets */etc/fstab* to automount the drive. 8 GB is twice the onboard memory and is more than adequate for the purposes of the project as a whole, however if one feels it necessary to increase the size, simply change the number following the -s flag, in the above case 8, to reflect your desire. To double check that the script properly created the swapfile, either open the gui based system monitor provided on the system and navigate to the Resources tab (should be listed as swap with a green circle that says 8 GB) or run
 
     swapon -s
 
