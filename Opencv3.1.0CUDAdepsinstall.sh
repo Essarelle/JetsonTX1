@@ -38,6 +38,7 @@ sudo apt-get install libitpp-dev libfann-dev libfann-doc libgeotiff-epsg  python
 sudo apt-get install libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libdc1394-22-dev
 
 # download and unzip opencv & opencv_contrib
+cd $HOME
 wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.1.0.zip --no-check-certificate
 wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.1.0.zip --no-check-certificate
 unzip opencv.zip
