@@ -33,7 +33,7 @@ This creates a swapfile of size 8 GB and sets */etc/fstab* to automount the driv
 # Build OpenCV 3.2 against CUDA
 Now, for building OpenCV. First, run the script provided in the repo *Opencv3.1.0CUDAdepsinstall.sh* to download and install library dependencies as well as get/unzip the source code.
 
-    ./Opencv3.1.0CUDAdepsinstall.sh
+    ./Opencv3.2CUDAdepsinstall.sh
 
 Due to space limitations in the eMMC storage, it is necessary to build OpenCV in the mounted drive. So move the unzipped OpenCV and OpenCV Contrib folders to */mnt* (Note: assumes location in the ~ directory)
 
