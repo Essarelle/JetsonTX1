@@ -31,7 +31,7 @@ This creates a swapfile of size 8 GB and sets */etc/fstab* to automount the driv
     swapon -s
 
 # Build OpenCV 3.2 against CUDA
-Now, for building OpenCV. First, run the script provided in the repo *Opencv3.1.0CUDAdepsinstall.sh* to download and install library dependencies as well as get/unzip the source code.
+Now, for building OpenCV. First, run the script provided in the repo *Opencv3.2CUDAdepsinstall.sh* to download and install library dependencies as well as get/unzip the source code.
 
     ./Opencv3.2CUDAdepsinstall.sh
 
@@ -62,6 +62,16 @@ To install the MBZIRC-specific ROS packages and dependencies, run the *ROS-Kinet
 
     ./ROS-Kinetic.sh
 
+# Fix USB Autosuspend and add udev rules 
+Run the script *fixautosuspend.sh* to fix autosuspend rule
+
+
+    ./fixautosuspend.sh
+
+Then add the udev rules via the *createudevrules.sh* script
+
+    ./createudevrules.sh
+    
 # Check On Board Camera with GStreamer Pipeline
 To check if the on board camera is working run the following
 
