@@ -1,6 +1,6 @@
 #!/bin/bash
 # NVIDIA Jetson TX1
-# Install opencv 3.1.0 dependencies with cuda support, opengl support as well as various others
+# Install opencv 3.2 dependencies with cuda support, opengl support as well as various others
 
 # build tools and basic dependencies
 sudo apt-get install build-essential flex bison autotools-dev automake liborc-dev autopoint libtool
@@ -39,7 +39,5 @@ sudo apt-get install libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libdc
 
 # download and unzip opencv & opencv_contrib
 cd $HOME
-wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.1.0.zip --no-check-certificate
-wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.1.0.zip --no-check-certificate
-unzip opencv.zip
-unzip opencv_contrib.zip
+git clone https://github.com/opencv/opencv.git
+git clone https://github.com/opencv/opencv_contrib.git
