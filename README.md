@@ -71,6 +71,30 @@ Run the script *fixautosuspend.sh* to fix autosuspend rule
 Then add the udev rules via the *createudevrules.sh* script
 
     ./createudevrules.sh
+
+### Configure Environment
+
+Add this to your .bashrc file. **Note MBZIRC_DIR should be set to where you have the MBZIRC workspace.**
+
+    export MBZIRC_DIR="${HOME}/cmsvt_mbzirc"
+    export SITL_GAZEBO_PATH="${MBZIRC_DIR}/src/sitl_gazebo"
+
+    source /opt/ros/kinetic/setup.bash
+    source /usr/share/gazebo-7/setup.sh
+    source "${MBZIRC_DIR}/devel/setup.bash"
+
+    if [[ $GAZEBO_RESOURCE_PATH != *"${SITL_GAZEBO_PATH}"* ]]
+    then
+      export GAZEBO_RESOURCE_PATH="${SITL_GAZEBO_PATH}:${GAZEBO_RESOURCE_PATH}"
+    fi
+    if [[ $GAZEBO_PLUGIN_PATH != *"${SITL_GAZEBO_PATH}/build"* ]]
+    then
+      export GAZEBO_PLUGIN_PATH="${SITL_GAZEBO_PATH}/build:${GAZEBO_PLUGIN_PATH}"
+    fi
+    if [[ $GAZEBO_MODEL_PATH != *"${SITL_GAZEBO_PATH}/models"* ]]
+    then
+      export GAZEBO_MODEL_PATH="${SITL_GAZEBO_PATH}/models:${GAZEBO_MODEL_PATH}"
+    fi
     
 # Check On Board Camera with GStreamer Pipeline
 To check if the on board camera is working run the following
