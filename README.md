@@ -96,7 +96,7 @@ Add this to your .bashrc file. **Note MBZIRC_DIR should be set to where you have
       export GAZEBO_MODEL_PATH="${SITL_GAZEBO_PATH}/models:${GAZEBO_MODEL_PATH}"
     fi
 
-Then download and deploy the MBZIRC project via the *MBZIRCsetup.sh* script
+Navigate to your development directory, then download and deploy the MBZIRC project via the *MBZIRCsetup.sh* script
 
     ./MBZIRCsetup.sh
 
