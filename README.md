@@ -17,11 +17,11 @@ There are a number of pieces of software installed during the flashing process t
 This should remove all of the useless software and free up space.
 
 # Mount SSD and Create Swapfile
-The onboard storage and memory shipped with the development board are not adequate to build OpenCV 3.1.0 compiled against CUDA, so it is necessary to add additional storage and create a swapfile (hence the attached SSD). To do so, first mount the SSD in the following manner via terminal
+The onboard storage and memory shipped with the development board are not adequate to build OpenCV 3.2 compiled against CUDA, so it is necessary to add additional storage and create a swapfile (hence the attached SSD). To do so, first mount the SSD in the following manner via terminal
 
     sudo mount -t ext4 /dev/sda1 /opt
 
-This mounts the */dev/sda1* drive to mountpoint */mnt*. 
+This mounts the */dev/sda1* drive to mountpoint */opt*. 
 Now create the swapfile using the script *createSwap.sh* provided in this repo via terminal as follows
 
     sudo ./createSwapfile.sh -d /opt -s 8 -a
