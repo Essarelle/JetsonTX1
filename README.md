@@ -72,7 +72,7 @@ Then add the udev rules via the *createudevrules.sh* script
 
     ./createudevrules.sh
 
-# Configure Environment
+# Configure Environment & Build Project
 
 Add this to your .bashrc file. **Note MBZIRC_DIR should be set to where you have the MBZIRC workspace.**
 
