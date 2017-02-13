@@ -30,20 +30,20 @@ This creates a swapfile of size 8 GB and sets */etc/fstab* to automount the driv
 
     swapon -s
 
-# Build OpenCV 3.1.0 against CUDA
+# Build OpenCV 3.2 against CUDA
 Now, for building OpenCV. First, run the script provided in the repo *Opencv3.1.0CUDAdepsinstall.sh* to download and install library dependencies as well as get/unzip the source code.
 
     ./Opencv3.1.0CUDAdepsinstall.sh
 
 Due to space limitations in the eMMC storage, it is necessary to build OpenCV in the mounted drive. So move the unzipped OpenCV and OpenCV Contrib folders to */mnt* (Note: assumes location in the ~ directory)
 
-    sudo mv opencv-3.1.0 /mnt
+    sudo mv opencv /opt
 
-    sudo mv opencv_contrib-3.1.0 /mnt
+    sudo mv opencv_contrib /opt
 
 Navigate to the main OpenCV folder 
 
-    cd /mnt/opencv-3.1.0
+    cd /opt/opencv
     
 Make the build directory and Navigate to it
 
@@ -51,39 +51,11 @@ Make the build directory and Navigate to it
     
 Run the *cmake* configuration
 
-    cmake -DCMAKE_DEBUG_POSTFIX=d -DCMAKE_CXX_FLAGS_RELEASE="-fno-omit-frame-pointer -O3 -DNDEBUG -g" -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=/usr/local -DWITH_CUDA=ON -DCUDA_ARCH_BIN="5.3" -DCUDA_ARCH_PTX="" -DENABLE_FAST_MATH=1 -DCUDA_FAST_MATH=1 -DWITH_CUBLAS=1 -DENABLE_NEON=ON -DINSTALL_PYTHON_EXAMPLES=ON -DBUILD_EXAMPLES=ON -DOPENCV_EXTRA_MODULES_PATH=/mnt/opencv_contrib-3.1.0/modules -DBUILD_NEW_PYTHON_SUPPORT=ON -DWITH_TBB=ON -DWITH_V4L=ON ..
+    cmake -DCMAKE_DEBUG_POSTFIX=d -DCMAKE_CXX_FLAGS_RELEASE="-fno-omit-frame-pointer -O3 -DNDEBUG -g" -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=/usr/local -DWITH_CUDA=ON -DCUDA_ARCH_BIN="5.3" -DCUDA_ARCH_PTX="" -DENABLE_FAST_MATH=1 -DCUDA_FAST_MATH=1 -DWITH_CUBLAS=1 -DENABLE_NEON=ON -DINSTALL_PYTHON_EXAMPLES=ON -DBUILD_EXAMPLES=ON -DOPENCV_EXTRA_MODULES_PATH=/opt/opencv_contrib/modules -DBUILD_NEW_PYTHON_SUPPORT=ON -DWITH_TBB=ON -DWITH_V4L=ON ..
 
 Then *make* and install it
 
     make -j4 && sudo make install
-
-See below for help with compile errors
-
-# OpenCV 3.1.0 Compile Bugs Solutions 
-If *make* can't find the CUDA libraries while building graphcuts, in */mnt/opencv-3.1.0/modules/cudalegacy/src/graphcuts.cpp* add the following to the first line below includes (should be obvious where to put it)
-
-    || (CUDART_VERSION >= 8000) 
-
-If error with xfeatures2d not being found during make, export the following:
-
-    export xfeatures2d=/mnt/opencv_contrib-3.1.0/modules
-
-If HDF5 not found by *cmake* in */mnt/opencv-3.1.0/modules/python/common.cmake*, append the following to the bottom of the file:
-
-    find_package(HDF5)
- 
-    include_directories(${HDF5_INCLUDE_DIRS})
-
-
-If error with undefined character before '<' (or something like that) during make in regards to onlineMIL, move the following from *onlineMIL.hpp* to *onlineMIL.cpp*   
-
-    #define  sign(s)  ((s > 0 ) ? 1 : ((s<0) ? -1 : 0))
-
-If compile still fails with similar error as above while building onlineMIL, put the following in *onlineMIL.hpp* 
-
-    #define CV_SIGN(s)  (((s) > 0) ? 1 : (((s)<0) ? -1 : 0)) 
-
-_Note: If errors occur during configuration (cmake step), it is necessary to delete the CMakeCache.txt file using rm -rf before rerunning cmake_ 
 
 # Install ROS Kinetic Libraries
 To install the MBZIRC-specific ROS packages and dependencies, run the *ROS-Kinetic.sh* script provided in the repo.
