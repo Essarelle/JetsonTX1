@@ -18,7 +18,7 @@ sudo apt-get install ros-kinetic-ros-base -y
 # sudo apt-get install ros-kinetic-PACKAGE
 sudo apt-get install ros-kinetic-navigation
 sudo apt-get install python-pip python-scipy python-opencv python-matplotlib python-serial python-empy python-wxgtk3.0 python-lxml python-pexpect python-catkin-tools python3-pyside ccache gawk git libprotobuf-dev libprotoc-dev protobuf-compiler libeigen3-dev qtcreator pyqt5-dev-tools python-qt5 ros-kinetic-mavros ros-kinetic-mavros-extras ros-kinetic-mavros-msgs ros-kinetic-octomap ros-kinetic-octomap-ros ros-kinetic-octomap-msgs ros-kinetic-octomap-rviz-plugins
-
+sudo apt-get install python-lxml python-pexpect python-catkin-tools python-wstool python-rosinstall python3-pip python3-pyside ccache gawk git libprotobuf-dev libprotoc-dev protobuf-compiler libeigen3-dev libgstreamer1.0-dev qtcreator pyqt5-dev-tools ros-kinetic-mavros ros-kinetic-octomap ros-kinetic-octomap-ros ros-kinetic-octomap-msgs ros-kinetic-octomap-rviz-plugins ros-kinetic-image-transport* libignition-math2-dev
 pip install numpy scipy empy catkin_pkg rospkg defusedxml catkin_tools
 
 # To find available packages:
