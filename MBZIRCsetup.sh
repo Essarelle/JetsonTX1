@@ -5,9 +5,9 @@ git clone https://github.com/cmsvt/cmsvt_mbzirc.git
 
 # Build sitl models
 cd cmsvt_mbzirc/
-cd scripts/
-./build_sitl_gazebo.sh
-cd ..
+#cd scripts/
+#./build_sitl_gazebo.sh
+#cd ..
 
 # Dependency management
 wstool merge -t src cmsvt_mbzirc.rosinstall
@@ -23,9 +23,9 @@ make
 sudo make install
 
 # Catkin Build project
-cd ~/cmsvt_mbzirc
+cd /opt/cmsvt_mbzirc
 catkin build -c
 
 # Generate Hexacopter Models (only needed for sim)
-./scripts/generate_hexacopter_models.sh
+#./scripts/generate_hexacopter_models.sh
 
