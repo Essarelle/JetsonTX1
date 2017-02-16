@@ -1,7 +1,7 @@
 #!/bin/bash
 # NVIDIA Jetson TX1
 # Install opencv 3.2 dependencies with cuda support, opengl support as well as various others
-
+cd ~
 # build tools and basic dependencies
 sudo apt-get install build-essential flex bison autotools-dev automake liborc-dev autopoint libtool
 sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev libavresample-dev
