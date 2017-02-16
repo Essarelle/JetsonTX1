@@ -1,5 +1,5 @@
 # JetsonTX1
-This Readme is intended as a guide for the setup of a Jetson TX1 immediately following a flash via the NVIDIA provided JetPack install tool for the purposes of deploying the dependencies of the MBZIRC project. The directions/customizations for the flashing process are not covered here. This guide assumes that there is an SSD formatted in ext4 attached to the SATA port on-board the Jetson under */dev/sda1*. To confirm this, run *lsblk* in a terminal and the drive should be listed as sda1.
+This Readme is intended as a guide for the setup of a Jetson TX1 immediately following a flash via the NVIDIA provided JetPack install tool for the purposes of deploying the dependencies of the MBZIRC project. The directions/customizations for the flashing process are not covered here. This guide assumes that there is an SSD partitioned into three separate parts formatted in ext4 attached to the SATA port on-board the Jetson under */dev/sda1*, */dev/sda2*, and */dev/sda1* respectively. These will be for the /home, /usr, and /opt dirs. To confirm this, run *lsblk* in a terminal and the drive should be listed.
 
 To format the SSD, simply connect it to the SATA port, download the gparted tool, run *sudo gparted* from terminal, a gui should open, then follow the menus and prompts to format the drive into ext4. It is pretty straightforward. 
 
@@ -10,21 +10,16 @@ During the flashing process, for some reason the aptitude sources list gets conf
 
     sudo python3 Cleanupdeb11.py
 
-There are a number of pieces of software installed during the flashing process that are extraneous and should be removed as space on the eMMC storage is limited. In particular, the unity scope related peripherals and libreoffice components are useless to the project. To remove them run the script *cleanupextras.sh* via terminal
+There are a number of pieces of software installed during the flashing process that are extraneous and should be removed. In particular, the unity scope related peripherals and libreoffice components are useless to the project. To remove them run the script *cleanupextras.sh* via terminal
 
     ./cleanupextras.sh
 
 This should remove all of the useless software and free up space.
 
-# Mount SSD and Create Swapfile
-The onboard storage and memory shipped with the development board are not adequate to build OpenCV 3.2 compiled against CUDA, so it is necessary to add additional storage and create a swapfile (hence the attached SSD). To do so, first mount the SSD in the following manner via terminal
-
-    sudo mount -t ext4 /dev/sda1 /opt
-
-This mounts the */dev/sda1* drive to mountpoint */opt*. 
+# Create Swapfile 
 Now create the swapfile using the script *createSwap.sh* provided in this repo via terminal as follows
 
-    sudo ./createSwapfile.sh -d /opt -s 8 -a
+    sudo ./createSwapfile.sh -d /home -s 8 -a
 
 This creates a swapfile of size 8 GB and sets */etc/fstab* to automount the drive. 8 GB is twice the onboard memory and is more than adequate for the purposes of the project as a whole, however if one feels it necessary to increase the size, simply change the number following the -s flag, in the above case 8, to reflect your desire. To double check that the script properly created the swapfile, either open the gui based system monitor provided on the system and navigate to the Resources tab (should be listed as swap with a green circle that says 8 GB) or run
 
@@ -35,15 +30,9 @@ Now, for building OpenCV. First, run the script provided in the repo *Opencv3.2C
 
     ./Opencv3.2CUDAdepsinstall.sh
 
-Due to space limitations in the eMMC storage, it is necessary to build OpenCV in the mounted drive. So move the unzipped OpenCV and OpenCV Contrib folders to */mnt* (Note: assumes location in the ~ directory)
-
-    sudo mv opencv /opt
-
-    sudo mv opencv_contrib /opt
-
 Navigate to the main OpenCV folder 
 
-    cd /opt/opencv
+    cd ~/opencv
     
 Make the build directory and Navigate to it
 
@@ -51,7 +40,7 @@ Make the build directory and Navigate to it
     
 Run the *cmake* configuration
 
-    cmake -DCMAKE_DEBUG_POSTFIX=d -DCMAKE_CXX_FLAGS_RELEASE="-fno-omit-frame-pointer -O3 -DNDEBUG -g" -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=/usr/local -DWITH_CUDA=ON -DCUDA_ARCH_BIN="5.3" -DCUDA_ARCH_PTX="" -DENABLE_FAST_MATH=1 -DCUDA_FAST_MATH=1 -DWITH_CUBLAS=1 -DENABLE_NEON=OFF -DINSTALL_PYTHON_EXAMPLES=ON -DBUILD_EXAMPLES=ON -DOPENCV_EXTRA_MODULES_PATH=/opt/opencv_contrib/modules -DBUILD_NEW_PYTHON_SUPPORT=ON -DWITH_TBB=ON -DWITH_V4L=ON ..
+    cmake -DCMAKE_DEBUG_POSTFIX=d -DCMAKE_CXX_FLAGS_RELEASE="-fno-omit-frame-pointer -O3 -DNDEBUG -g" -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=/usr/local -DWITH_CUDA=ON -DCUDA_ARCH_BIN="5.3" -DCUDA_ARCH_PTX="" -DENABLE_FAST_MATH=1 -DCUDA_FAST_MATH=1 -DWITH_CUBLAS=1 -DENABLE_NEON=OFF -DINSTALL_PYTHON_EXAMPLES=ON -DBUILD_EXAMPLES=ON -DOPENCV_EXTRA_MODULES_PATH=$HOME/opencv_contrib/modules -DBUILD_NEW_PYTHON_SUPPORT=ON -DWITH_TBB=ON -DWITH_V4L=ON ..
 
 Then *make* and install it
 
