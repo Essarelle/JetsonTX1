@@ -12,16 +12,17 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB01FA116
 # Installation
 sudo apt-get update
-sudo apt-get install ros-kinetic-ros-base -y
+#sudo apt-get install ros-kinetic-ros-base -y
+sudo apt-get install ros-kinetic-desktop-full -y
 # Installation of MBZIRC-specific ros-kinetic-package
 # You can additionally install a specific ROS package by adding a line like so:
 # sudo apt-get install ros-kinetic-PACKAGE
-sudo apt-get install ros-kinetic-navigation
-sudo apt-get install python-pip python-scipy python-opencv python-matplotlib python-serial python-empy python-wxgtk3.0 python-lxml python-pexpect python-catkin-tools python3-pyside ccache gawk git libprotobuf-dev libprotoc-dev protobuf-compiler libeigen3-dev qtcreator pyqt5-dev-tools python-qt5 ros-kinetic-mavros ros-kinetic-mavros-extras ros-kinetic-mavros-msgs ros-kinetic-octomap ros-kinetic-octomap-ros ros-kinetic-octomap-msgs ros-kinetic-octomap-rviz-plugins
-sudo apt-get install python-lxml python-pexpect python-catkin-tools python-wstool python-rosinstall python3-pip python3-pyside ccache gawk git libprotobuf-dev libprotoc-dev protobuf-compiler libeigen3-dev libgstreamer1.0-dev qtcreator pyqt5-dev-tools ros-kinetic-mavros ros-kinetic-octomap ros-kinetic-octomap-ros ros-kinetic-octomap-msgs ros-kinetic-octomap-rviz-plugins ros-kinetic-image-transport* libignition-math2-dev
-pip install numpy scipy empy catkin_pkg rospkg defusedxml catkin_tools
-sudo apt install ros-kinetic-camera-info-manager
-sudo apt install ros-kinetic-image-view
+sudo apt-get install ros-kinetic-navigation -y
+sudo apt-get install python-pip python-scipy python-opencv python-matplotlib python-serial python-empy python-wxgtk3.0 python-lxml python-pexpect python-catkin-tools python3-pyside ccache gawk git libprotobuf-dev libprotoc-dev protobuf-compiler libeigen3-dev qtcreator pyqt5-dev-tools python-qt5 ros-kinetic-mavros ros-kinetic-mavros-extras ros-kinetic-mavros-msgs ros-kinetic-octomap ros-kinetic-octomap-ros ros-kinetic-octomap-msgs ros-kinetic-octomap-rviz-plugins -y
+sudo apt-get install python-lxml python-pexpect python-catkin-tools python-wstool python-rosinstall python3-pip python3-pyside ccache gawk git libprotobuf-dev libprotoc-dev protobuf-compiler libeigen3-dev libgstreamer1.0-dev qtcreator pyqt5-dev-tools ros-kinetic-mavros ros-kinetic-octomap ros-kinetic-octomap-ros ros-kinetic-octomap-msgs ros-kinetic-octomap-rviz-plugins ros-kinetic-image-transport* libignition-math2-dev -y
+pip install numpy scipy empy catkin_pkg rospkg defusedxml catkin_tools -y
+sudo apt install ros-kinetic-camera-info-manager -y
+sudo apt install ros-kinetic-image-view -y
 # To find available packages:
 # apt-cache search ros-kinetic
 # 
