@@ -23,7 +23,7 @@ make
 sudo make install
 
 # Catkin Build project
-cd /opt/cmsvt_mbzirc
+cd ~/cmsvt_mbzirc
 catkin build -c
 
 # Generate Hexacopter Models (only needed for sim)
