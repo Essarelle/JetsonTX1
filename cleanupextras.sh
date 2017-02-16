@@ -15,30 +15,30 @@ gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-ama
     'more_suggestions-u1ms.scope', 'more_suggestions-populartracks.scope', 'music-musicstore.scope', \
     'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope', 'more_suggestions-skimlinks.scope']"
 
-sudo apt-get remove --purge unity-lens-friends
-sudo apt-get remove --purge unity-lens-music
-sudo apt-get remove --purge unity-lens-music
-sudo apt-get remove --purge unity-lens-photos
-sudo apt-get remove --purge unity-lens-video
+sudo apt-get remove --purge unity-lens-friends -y
+sudo apt-get remove --purge unity-lens-music -y
+sudo apt-get remove --purge unity-lens-music -y
+sudo apt-get remove --purge unity-lens-photos -y
+sudo apt-get remove --purge unity-lens-video -y
 
-sudo apt-get remove --purge unity-scope-audacious
-sudo apt-get remove --purge unity-scope-calculator
-sudo apt-get remove --purge unity-scope-chromiumbookmarks
-sudo apt-get remove --purge unity-scope-clementine
-sudo apt-get remove --purge unity-scope-colourlovers
-sudo apt-get remove --purge unity-scope-devhelp
-sudo apt-get remove --purge unity-scope-firefoxbookmarks
-sudo apt-get remove --purge unity-scope-gdrive
-sudo apt-get remove --purge unity-scope-gmusicbrowser
-sudo apt-get remove --purge unity-scope-gourmet
-sudo apt-get remove --purge unity-scope-guayadeque
-sudo apt-get remove --purge unity-scope-manpages
-sudo apt-get remove --purge unity-scope-musicstores
-sudo apt-get remove --purge unity-scope-musique
-sudo apt-get remove --purge unity-scope-openclipart
-sudo apt-get remove --purge unity-scope-exdoc
-sudo apt-get remove --purge unity-scope-tomboy
-sudo apt-get remove --purge unity-scope-video-remote
-sudo apt-get remove --purge unity-scope-virtualbox
-sudo apt-get remove --purge unity-scope-yelp
-sudo apt-get remove --purge unity-scope-zotero
+sudo apt-get remove --purge unity-scope-audacious -y
+sudo apt-get remove --purge unity-scope-calculator -y
+sudo apt-get remove --purge unity-scope-chromiumbookmarks -y
+sudo apt-get remove --purge unity-scope-clementine -y
+sudo apt-get remove --purge unity-scope-colourlovers -y
+sudo apt-get remove --purge unity-scope-devhelp -y 
+sudo apt-get remove --purge unity-scope-firefoxbookmarks -y 
+sudo apt-get remove --purge unity-scope-gdrive -y 
+sudo apt-get remove --purge unity-scope-gmusicbrowser -y 
+sudo apt-get remove --purge unity-scope-gourmet -y 
+sudo apt-get remove --purge unity-scope-guayadeque -y 
+sudo apt-get remove --purge unity-scope-manpages -y 
+sudo apt-get remove --purge unity-scope-musicstores -y 
+sudo apt-get remove --purge unity-scope-musique -y 
+sudo apt-get remove --purge unity-scope-openclipart -y 
+sudo apt-get remove --purge unity-scope-exdoc -y 
+sudo apt-get remove --purge unity-scope-tomboy -y 
+sudo apt-get remove --purge unity-scope-video-remote -y 
+sudo apt-get remove --purge unity-scope-virtualbox -y 
+sudo apt-get remove --purge unity-scope-yelp -y
+sudo apt-get remove --purge unity-scope-zotero -y
