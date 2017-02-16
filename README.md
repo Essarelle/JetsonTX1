@@ -82,6 +82,7 @@ Add this to your .bashrc file. **Note MBZIRC_DIR should be set to where you have
     source /opt/ros/kinetic/setup.bash
     source /usr/share/gazebo-7/setup.sh
     source "${MBZIRC_DIR}/devel/setup.bash"
+    ROS_PACKAGE_PATH=~/cmsvt_mbzirc:$ROS_PACKAGE_PATH
 
     if [[ $GAZEBO_RESOURCE_PATH != *"${SITL_GAZEBO_PATH}"* ]]
     then
