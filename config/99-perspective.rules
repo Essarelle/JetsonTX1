@@ -1,1 +1,1 @@
-SUBSYSTEM=="usb", ATTRS{idVendor}=="05a3", ATTRS{idProduct}=="9520", MODE:="0666", GROUP:="plugdev", SYMLINK+="video_perspective"
+SUBSYSTEM=="video4linux", ATTRS{idVendor}=="05a3", ATTRS{idProduct}=="9520", MODE:="0666", GROUP:="plugdev", SYMLINK+="video_perspective"
