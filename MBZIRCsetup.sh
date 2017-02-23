@@ -1,6 +1,7 @@
 #!/bin/bash
 # THIS ASSUMES YOUR .bashrc IS SETUP ACCORDINGLY
 # Clone repo (manually enter github creds)
+cd ~
 git clone https://github.com/cmsvt/cmsvt_mbzirc.git
 
 # Build sitl models
