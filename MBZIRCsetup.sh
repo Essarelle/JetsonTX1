@@ -24,7 +24,7 @@ make
 sudo make install
 
 # Catkin Build project
-cd /opt/cmsvt_mbzirc
+cd ~/cmsvt_mbzirc
 #catkin config --blacklist mbzirc_gazebo
 catkin build -c
 
